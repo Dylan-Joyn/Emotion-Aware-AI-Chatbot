@@ -5,9 +5,7 @@ from langchain_core.output_parsers import BaseOutputParser
 from dotenv import load_dotenv
 import os
 
-# ---------------------------------------------------------------------
 # 1. Load environment variables (keep your keys in .env, never hardcode!)
-# ---------------------------------------------------------------------
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -20,9 +18,7 @@ if not GOOGLE_API_KEY or not GROQ_API_KEY:
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
-# ---------------------------------------------------------------------
 # 2. Custom parser: detects sentiment + severity
-# ---------------------------------------------------------------------
 class SentimentParser(BaseOutputParser):
     def parse(self, text: str) -> dict:
         text = text.strip().lower()
@@ -42,9 +38,7 @@ class SentimentParser(BaseOutputParser):
         return {"sentiment": sentiment, "severity": severity}
 
 
-# ---------------------------------------------------------------------
 # 3. Mental-health keyword detector
-# ---------------------------------------------------------------------
 def check_mental_health_concerns(user_input: str) -> str:
     crisis_keywords = [
         "suicide", "suicidal", "kill myself", "end my life", "want to die",
@@ -66,9 +60,7 @@ def check_mental_health_concerns(user_input: str) -> str:
     return "none"
 
 
-# ---------------------------------------------------------------------
-# 4. Sentiment analysis chain (✅ fixed model name)
-# ---------------------------------------------------------------------
+# 4. Sentiment analysis chain (fixed model name)
 sentiment_llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro", temperature=0)
 sentiment_prompt = PromptTemplate(
     input_variables=["user_input"],
@@ -89,16 +81,12 @@ sentiment_prompt = PromptTemplate(
 sentiment_chain = sentiment_prompt | sentiment_llm | SentimentParser()
 
 
-# ---------------------------------------------------------------------
-# 5. Models for routed responses (✅ both stable + supported)
-# ---------------------------------------------------------------------
+# 5. Models for routed responses
 positive_model = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.7)
 negative_model = ChatGoogleGenerativeAI(model="gemini-2.5-pro", temperature=0.5)
 neutral_model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.3)
 
-# ---------------------------------------------------------------------
 # 6. Response templates
-# ---------------------------------------------------------------------
 positive_prompt = PromptTemplate(
     input_variables=["user_input"],
     template=(
@@ -124,9 +112,7 @@ neutral_prompt = PromptTemplate(
     ),
 )
 
-# ---------------------------------------------------------------------
-# 7. Mental-health response (unchanged)
-# ---------------------------------------------------------------------
+# 7. Mental-health response template
 MENTAL_HEALTH_RESPONSE = """I hear that you're going through a difficult time, and I want you to know that your feelings are valid. However, I'm an AI assistant and not a certified mental health professional. 
 If you're struggling with your emotional or mental health, I strongly encourage you to reach out to a qualified human specialist who can provide the proper support you deserve.
 
@@ -144,9 +130,8 @@ Professional Help:
 
 You don't have to go through this alone. Professional support can make a real difference, and reaching out is a sign of strength, not weakness."""
 
-# ---------------------------------------------------------------------
 # 8. Routing logic
-# ---------------------------------------------------------------------
+
 def route_by_sentiment(user_input: str) -> str:
     # Step 1: Crisis detection
     mental_health_level = check_mental_health_concerns(user_input)
@@ -179,9 +164,7 @@ def route_by_sentiment(user_input: str) -> str:
     return response.content
 
 
-# ---------------------------------------------------------------------
 # 9. CLI test examples
-# ---------------------------------------------------------------------
 if __name__ == "__main__":
     test_inputs = [
         "I just got promoted at work! I'm so excited!",
