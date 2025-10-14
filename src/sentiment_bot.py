@@ -162,22 +162,3 @@ def route_by_sentiment(user_input: str) -> str:
     # Step 5: Generate response
     response = chain.invoke({"user_input": user_input})
     return response.content
-
-
-# 9. CLI test examples
-if __name__ == "__main__":
-    test_inputs = [
-        "I just got promoted at work! I'm so excited!",
-        "I'm really frustrated with this bug. Nothing is working.",
-        "What's the capital of France?",
-        #"I've been feeling really depressed lately and don't know what to do",
-        # "I'm having severe anxiety and can't cope anymore",
-        "I'm so stressed about this deadline!"
-    ]
-
-    for user_input in test_inputs:
-        print(f"\n{'='*80}")
-        print(f"Input: {user_input}")
-        print(f"{'='*80}")
-        response = route_by_sentiment(user_input)
-        print(f"Response: {response}\n")

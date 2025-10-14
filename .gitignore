@@ -1,2 +1,14 @@
-# Ignore environment variable files
+# Python environments
+venv/
+backend_venv/
+
+# Environment variables
 .env
+
+# Cache / temp
+__pycache__/
+*.pyc
+*.log
+
+.DS_Store
+
