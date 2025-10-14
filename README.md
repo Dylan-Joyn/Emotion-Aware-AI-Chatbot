@@ -6,7 +6,7 @@ Follow these steps to set up the virtual environment for the backend:
 
 ```bash
 git clone <your-repo-url>
-cd AI_Chatbot
+cd Emotion-Aware-AI-Chatbot
 ```
 
 ## 2. Create a Virtual Environment
