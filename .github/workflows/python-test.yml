@@ -9,6 +9,7 @@ on:
     - main
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo "Setting up devops"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Setting up devops"
