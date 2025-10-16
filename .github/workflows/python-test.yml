@@ -4,9 +4,13 @@ name: Chatbot CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    - main
+    - testing
   pull_request:
     branches: [ main ]
 
 jobs:
-  pool: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Setting up devops"
