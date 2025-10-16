@@ -1,6 +1,6 @@
 # .github/workflows/python-test.yml
 
-name: Gemini API Tests
+name: Chatbot CI/CD Pipeline
 
 on:
   push:
