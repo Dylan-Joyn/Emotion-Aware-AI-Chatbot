@@ -6,7 +6,9 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    - main
 
 jobs:
-  pool: ubuntu-latest
+  runs-on: ubuntu-latest
+  steps:
+    - run: echo "Setting up devops"
