@@ -4,8 +4,9 @@ name: Chatbot CI/CD Pipeline
 
 on:
   push:
-    - main
-    - testing
+    branches:
+      - main
+      - testing
   pull_request:
     branches: [ main ]
 
