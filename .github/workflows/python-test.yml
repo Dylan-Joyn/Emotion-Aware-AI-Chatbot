@@ -1,0 +1,12 @@
+# .github/workflows/python-test.yml
+
+name: Gemini API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  
