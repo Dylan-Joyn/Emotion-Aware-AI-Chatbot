@@ -28,6 +28,6 @@ jobs:
         pip install pytest
 
     - name: Test Gemini API Connection
-    run: python test_api.pytest
-    env:
-      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      run: python test_api.pytest
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
