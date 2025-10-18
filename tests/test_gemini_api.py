@@ -30,7 +30,7 @@ def test_gemini_api_connection(gemini_client):
             contents=prompt
         )
     except Exception as e:
-        # connection fails
+        # connection fails on server end
         pytest.fail(f"API call failed during content generation: {e}")
 
     assert response.text is not None, "Response text was empty."
