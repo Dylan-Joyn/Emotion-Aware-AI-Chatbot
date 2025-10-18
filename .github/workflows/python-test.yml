@@ -26,13 +26,11 @@ jobs:
         pip install -r docs/backend_requirements.txt
         pip install google-genai google-api-core python-dotenv
         pip install pytest
-    
-    - name: Establish Secrets
-      with:
-        GOOGLE_API_KEY = ${{Secrets.GOOGLE_API_KEY}}
-        GROQ_API_KEY = ${{Secrets.GROQ_API_KEY}}
         
 
     - name: Test Pytests
       run: |
         python -m pytest tests/
+      env:
+        GOOGLE_API_KEY = ${{Secrets.GOOGLE_API_KEY}}
+        GROQ_API_KEY = ${{Secrets.GROQ_API_KEY}}
