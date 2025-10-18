@@ -8,9 +8,9 @@
 
 **Changed**
 <ul>
-<li>test_api.py now tests the connection to Google's AI by creating a client object.</li>
+<li>test_api actually utilizes pytests </li>
 
 **Fixed**
 <ul>
-<li>test_api does not throw an error</li>
+<li>test_api does not throw an error for import statements</li>
 
