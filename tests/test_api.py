@@ -5,7 +5,6 @@ import os
 load_dotenv()
 
 api_key = os.getenv("GOOGLE_API_KEY")
-print(f"API Key: {api_key}")
 
 # Test the key directly
 client = genai.Client()
