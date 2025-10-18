@@ -4,6 +4,7 @@
 <ul>
 <li>CHANGELOG.md for version histroy</li>
 <li>CI/CD Pipeline in workflows</li>
+<li>Secrets have been uploaded to Github and established in workflow</li>
 
 **Changed**
 <ul>
