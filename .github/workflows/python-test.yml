@@ -28,7 +28,7 @@ jobs:
         pip install pytest
     
     - name: Establish Secrets
-      env:
+      with:
         GOOGLE_API_KEY = ${{Secrets.GOOGLE_API_KEY}}
         GROQ_API_KEY = ${{Secrets.GROQ_API_KEY}}
         
