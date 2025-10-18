@@ -25,7 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r docs/backend_requirements.txt
         pip install google-genai google-api-core python-dotenv
-        pip install google-genai
         pip install pytest
 
     - name: Test Pytests
