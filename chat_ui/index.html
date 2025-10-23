@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat UI</title>
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+    <script src="app.js?v=5"></script>
+
+<body>
+  <div class="app">
+
+    <!-- LEFT: Conversations (top) + Background (bottom) -->
+<aside class="left" id="leftPane">
+  <header class="left__header">
+    <h3>Stored Conversations</h3>
+  </header>
+
+  <div class="convos" id="convoList"></div>
+
+  <!-- Background image panel at bottom-left -->
+  <div class="bgpanel" aria-hidden="true"></div>
+</aside>
+
+    <!-- RIGHT: Header + Messages + Composer (5/7) -->
+    <main class="right">
+      <div class="right__header">
+        <h2>Chatbot Frontend</h2>
+      </div>
+
+      <div class="right__messages" id="messages"></div>
+
+      <form class="right__composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Type a message… (Shift+Enter for newline)"></textarea>
+        <button type="submit" aria-label="Send">➤</button>
+      </form>
+    </main>
+
+  </div>
+ 
+</body>
+</html>
