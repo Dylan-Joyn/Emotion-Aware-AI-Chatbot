@@ -25,7 +25,7 @@ def main():
 
             # Check for exit commands
             if user_input.lower().strip() in ["quit", "exit", "bye", "goodbye"]:
-                print("\nGoodbye! Take care! 👋\n")
+                print("\nGoodbye! Take care!\n")
                 break
 
             # Skip empty messages
@@ -36,10 +36,10 @@ def main():
             response = route_by_sentiment(user_input)
             
             # Display response
-            print(f"\nBot: {response}\n")
+            print(f"\nKnight Bot: {response}\n")
 
         except KeyboardInterrupt:
-            print("\n\nChat interrupted. Goodbye! 👋\n")
+            print("\n\nChat interrupted. Goodbye!\n")
             break
         except Exception as e:
             print(f"\nError: {str(e)}\n")
